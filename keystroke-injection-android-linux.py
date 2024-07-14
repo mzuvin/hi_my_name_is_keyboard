@@ -85,7 +85,7 @@ log.status("injecting Tab keypresses for 10 seconds")
 start = time.time()
 while (time.time() - start) < 10:
   try:
-    client.send_keypress(Key.MediaWebBrowser)
+    client.send_keypress(Key.Home)
     time.sleep(0.05)
   except KeyboardInterrupt:
     break
