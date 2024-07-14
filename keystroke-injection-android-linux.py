@@ -86,6 +86,19 @@ start = time.time()
 while (time.time() - start) < 10:
   try:
     client.send_keypress(Key.Home)
+    client.send_keypress(Key.F1)
+    client.send_keypress(Key.F2)
+    client.send_keypress(Key.F3)
+    client.send_keypress(Key.F4)
+    client.send_keypress(Key.F5)
+    client.send_keypress(Key.F6)
+    client.send_keypress(Key.F7)
+    client.send_keypress(Key.F8)
+    client.send_keypress(Key.F9)
+    client.send_keypress(Key.F10)
+    client.send_keypress(Key.F11)
+    client.send_keypress(Key.F12)
+    client.send_keypress(Key.MediaPlayPause)
     time.sleep(0.05)
   except KeyboardInterrupt:
     break
