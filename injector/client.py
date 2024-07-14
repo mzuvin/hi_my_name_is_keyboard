@@ -116,7 +116,10 @@ class KeyboardClient:
     return sock
 
   def send_keyboard_report(self, *args):
-    self.c19.send(keyboard_report(*args))
+    try:
+      self.c19.send(keyboard_report(*args))
+    except:
+      pass
 
   def send_keypress(self, *args, delay=0.004):
     self.send_keyboard_report(*args)
