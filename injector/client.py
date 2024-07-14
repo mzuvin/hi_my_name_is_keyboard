@@ -132,22 +132,25 @@ class KeyboardClient:
       self.send_keypress(*ascii_to_hid(c))
 
   def loop(self):
-    while not self.exit:
-      time.sleep(0.001)
+    try:
+      while not self.exit:
+        time.sleep(0.001)
 
-      raw = self.c1.recv()
+        raw = self.c1.recv()
 
-      raw = self.c19.recv()
-      if raw in [b"\xa2\xf1\x01\x00", b"\xa2\x01\x01"]:
-        self.hid_ready = True
+        raw = self.c19.recv()
+        if raw in [b"\xa2\xf1\x01\x00", b"\xa2\x01\x01"]:
+          self.hid_ready = True
 
-      raw = self.c17.recv()
-      if raw is not None:
-        if raw == b"\x15":
-          self.c17.close()
-        elif self.auto_ack:
-          self.c17.send(b"\x00")
+        raw = self.c17.recv()
+        if raw is not None:
+          if raw == b"\x15":
+            self.c17.close()
+          elif self.auto_ack:
+            self.c17.send(b"\x00")
 
-    self.c1.close()
-    self.c17.close()
-    self.c19.close()
+      self.c1.close()
+      self.c17.close()
+      self.c19.close()
+    except:
+      pass
