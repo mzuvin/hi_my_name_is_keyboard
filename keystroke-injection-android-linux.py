@@ -86,7 +86,7 @@ start = time.time()
 while (time.time() - start) < 10:
   try:
     time.sleep(0.05)
-    client.send_keypress(Key.M)
+    client.send_keypress(Key.PrintScreen)
   except KeyboardInterrupt:
     break
 
