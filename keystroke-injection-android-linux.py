@@ -85,7 +85,7 @@ log.status("injecting Tab keypresses for 10 seconds")
 start = time.time()
 while (time.time() - start) < 20:
   try:
-    client.send_keypress(Key.Tab)
+    client.send_keypress(Key.VolumeUp)
     time.sleep(0.05)
   except KeyboardInterrupt:
     break
